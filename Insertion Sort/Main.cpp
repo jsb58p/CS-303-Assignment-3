@@ -1,14 +1,43 @@
-#include "Linked_List_Insertion_Sort.h"
 #include <iostream>
+#include <list>
 
-int main() {
-	std::list<int> numbers = { 7, 4, 2, 3, 9, 5, 8, 6, 11, 1 };
-	linked_list_insertion_sort numbersList;		//declare a linked_list_insertion_sort object to call the insertion sort function
-	numbersList.insertion_sort_list(numbers);	//insertion sort function
-	
-
-	for (const auto& item : numbers) {  //for loop to display the elements of the list after sorting, to ensure the order is correct
-		std::cout << item << " ";		
+void insertion_sort(std::list<int>& num) {
+	if (num.empty()) {
+		return;
 	}
 
+	// Initialize an iterator for the current position in the list
+	for (auto it = std::next(num.begin()); it != num.end(); ++it) {
+		int key = *it;
+		auto prev = std::prev(it);
+
+		// Move the key backwards through the list until it's in the correct position
+		while (prev != num.begin() && *prev > key) {
+			*it = *prev;
+			it = prev;
+			prev = std::prev(prev);
+		}
+
+		// Insert the key into its correct position
+		if (*prev > key) {
+			*it = *prev;
+			*prev = key;
+		}
+		else {
+			*it = key;
+		}
+	}
+}
+
+
+
+int main() {
+	std::list<int> num = { 3, 5, 2, 8, 9, 1, 5, 4, 6 };
+	// Perform insertion sort
+	insertion_sort(num);
+	// Print the sorted list
+	for (int n : num) {
+		std::cout << n << " ";
+	}
+	std::cout << std::endl;
 }
