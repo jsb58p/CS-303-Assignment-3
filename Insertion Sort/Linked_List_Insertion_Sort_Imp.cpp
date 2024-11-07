@@ -1,25 +1,29 @@
-void linked_list_insertion_sort::insertion_sort_list(std::list<int>& num) {
-    if (num.size() <= 1) return; // If the list is empty or has only one element, it's already sorted
+#include "Linked_List_Insertion_Sort.h"
 
-    auto it = next(num.begin()); // Start from the second element
-    while (it != num.end()) {
-        auto key = *it;  // The element to be inserted
-        auto pos = it;
-        --pos;  // Move to the element before 'it'
+void insertion_sort(std::list<int>& num) {
+	if (num.empty()) {
+		return;
+	}
 
-        bool insertionNeeded = false;
-        while (pos != num.begin() && key < *pos) {
-            --pos;  // Move backward
-            insertionNeeded = true;
-        }
+	// Initialize an iterator for the current position in the list
+	for (auto it = std::next(num.begin()); it != num.end(); ++it) {
+		int key = *it;
+		auto prev = std::prev(it);
 
-        // If key is not already in the correct place, remove and reinsert it
-        if (insertionNeeded) {
-            num.erase(it);  // Remove the current element
-            num.insert(pos, key);  // Insert it in the correct position
-        }
+		// Move the key backwards through the list until it's in the correct position
+		while (prev != num.begin() && *prev > key) {
+			*it = *prev;
+			it = prev;
+			prev = std::prev(prev);
+		}
 
-        // Move to the next element
-        it = next(it);
-    }
+		// Insert the key into its correct position
+		if (*prev > key) {
+			*it = *prev;
+			*prev = key;
+		}
+		else {
+			*it = key;
+		}
+	}
 }
