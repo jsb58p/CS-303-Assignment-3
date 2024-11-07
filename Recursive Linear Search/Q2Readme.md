@@ -1,6 +1,6 @@
-# Assignment 3 - Implement a queue data structure
+# Assignment 3 - Write a recursive linear search function with a recursive step that finds the last occurrence of a target in a vector, not the first. 
 
-Queue.h, Queue_Imp.tpp, and Main.cpp must be in the same repository.
+Function is in Main.cpp.
 
 ---
 **Function Descriptions**
