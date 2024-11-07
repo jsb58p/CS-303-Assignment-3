@@ -7,7 +7,7 @@
 #include <iterator>
 class linked_list_insertion_sort {
 public:
-	void insertion_sort_list(std::list <int>&);
+	void insertion_sort_list(std::list <int>&); //insertion sort algorithm taking a list as a parameter
 
 };
 
