@@ -5,27 +5,21 @@ Function is in Main.cpp.
 ---
 **Function Descriptions**
 
-**void display(int index = 0)** : Displays all the elements of the queue while preserving the queue
-
-**void move_to_rear()** : Moves the element currently at the front of the queue to the rear of the queue. T
-
--All other functions use the C++ standard library list class member functions.
+**int linear_search(std::vector<Item_Type>& items, Item_Type& target, size_t pos_last)** : Recursive linear search function that finds the last occurrence of a target in a vector
 
 
 ---
 ## Output
 
-<img width="685" alt="Queue" src="https://github.com/user-attachments/assets/8a63d4b3-6f35-4168-8036-90db86041400">
+<img width="932" alt="recursive_linear_search" src="https://github.com/user-attachments/assets/23f6437d-6709-4499-900d-c55cabd19caf">
 
 
--Line 5 creates a **linked_list_queue** object called **numbers**. The template parameter **int** means that the elements will be of type int.
+-Line 19 creates an integer **vector** object called **numbers**, along with some values.
 
--Line 9 - Line 18 uses the function **push** to push 10 values into the queue.
+-Line 20 creates an **int** variable called **target**. This holds the value to be targeted during the linear search function.
 
--Line 21 uses the function **display** to display the queue.
+-Line 22 uses cout and the function **linear_search** to display the last occurence of the target, which is 3. The last occurrence of 3 in **numbers** is at position 5, so the output is 5.
 
--Line 24 uses the function **move_to_rear** to move the 1 at the front of the queue to the rear.
 
--Line 27 uses the function **display** again to display the list now that the **move_to_rear** function has been used.
 
 
