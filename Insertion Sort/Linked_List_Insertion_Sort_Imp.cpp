@@ -1,6 +1,6 @@
 #include "Linked_List_Insertion_Sort.h"
 
-void insertion_sort(std::list<int>& num) {
+void linked_list_insertion_sort::insertion_sort_list(std::list<int>& num) {
 	if (num.empty()) {
 		return;
 	}
